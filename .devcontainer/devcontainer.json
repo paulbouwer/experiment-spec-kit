@@ -1,0 +1,71 @@
+{
+  "name": "Experiment Workspace",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+  // https://github.com/devcontainers/images/tree/main/src/base-ubuntu
+
+  // Features to add to the dev container
+  "features": {
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "3.12"
+    },
+    "ghcr.io/devcontainers-extra/features/uv:1": {
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "lts"
+    }
+  },
+
+  // Configure tool-specific properties
+  "customizations": {
+    "vscode": {
+      "extensions": [
+
+        /* -------------------------------------------------------------------------------------------
+            GitHub Copilot
+        ---------------------------------------------------------------------------------------------- */
+        // Provides AI-assisted code completions and inline suggestions tailored to the context of the
+        // file you're editing. It accelerates drafting markdown content, shell scripts, or supporting
+        // snippets by learning from your project and prompts.
+        "GitHub.copilot",
+
+        // Adds a chat-based Copilot interface inside VS Code for conversational guidance, code
+        // explanations, and quick fixes. Helpful when you want step-by-step assistance or need to
+        // reason about changes without leaving the editor.
+        "GitHub.copilot-chat",
+
+        /* -------------------------------------------------------------------------------------------
+            Markdown and documentation
+        ---------------------------------------------------------------------------------------------- */
+        // Packs common markdown conveniences such as shortcuts, automatic table of contents generation,
+        // and export commands. It streamlines day-to-day authoring of posts and documentation with
+        // keyboard-friendly tooling.
+        "yzhang.markdown-all-in-one",
+
+        // Runs Markdownlint rules within VS Code to highlight formatting and structural issues as you
+        // type. Ensures content adheres to consistent style guidelines before review or publication.
+        "DavidAnson.vscode-markdownlint",
+
+        // Integrates the Prettier formatter so markdown (and other supported formats) can be
+        // auto-formatted on demand. Guarantees a consistent look and spacing across collaboratively
+        // edited documents.
+        "esbenp.prettier-vscode"
+      ]
+    }
+  },
+
+  // Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root
+  "remoteUser": "vscode",
+  "privileged": false,
+
+  "postCreateCommand": "bash .devcontainer/post-create.sh",
+  "shutdownAction": "stopContainer",
+
+  // Enable init process (tini) as PID 1 for proper signal handling, zombie process reaping,
+  // and process management. This is a good practice for development containers, especially when:
+  // - Running Node.js applications that might spawn child processes
+  // - Using Docker-in-Docker (which you have enabled)
+  // - Running development servers, build tools, or test suites
+  //- Working with multiple processes or services - essential for development containers with multiple processes
+  "init": true
+}
