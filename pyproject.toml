@@ -1,0 +1,52 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "gitcfg"
+version = "0.1.0"
+description = "Rich command-line interface for exploring and managing Git configuration."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+authors = [{ name = "Git Config CLI Team" }]
+dependencies = [
+  "typer[all]>=0.12.3",
+  "rich>=13.9.0",
+  "pydantic>=2.9.0",
+]
+keywords = ["git", "cli", "configuration"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.11",
+  "Topic :: Software Development :: Version Control",
+]
+
+[project.urls]
+Homepage = "https://github.com/paulbouwer/experiment-spec-kit"
+Source = "https://github.com/paulbouwer/experiment-spec-kit"
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.3.0",
+  "pytest-cov>=5.0.0",
+  "ruff>=0.6.0",
+]
+
+[project.scripts]
+gitcfg = "gitcfg.__main__:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/gitcfg"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "src/gitcfg",
+  "README.md",
+  "LICENSE",
+  "pyproject.toml",
+]

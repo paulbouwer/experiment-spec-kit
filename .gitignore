@@ -1,0 +1,32 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+
+# Build outputs
+dist/
+build/
+*.egg-info/
+
+# Tooling
+.coverage
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Logs and temp files
+*.log
+*.tmp
+*.swp
+
+# IDE/editor metadata
+.vscode/
+.idea/
+
+# OS-specific
+.DS_Store
+Thumbs.db
