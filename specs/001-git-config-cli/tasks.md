@@ -67,19 +67,19 @@
 
 ### Implementation for User Story 1
 
-- [ ] T201 Implement git config read pipeline in `src/gitcfg/core/git_config.py` leveraging subprocess helper to gather scoped output.
-- [ ] T202 [P] Parse git output into data models in `src/gitcfg/core/parser.py`, populating `ConfigEntry`, `EffectiveConfig`, and override metadata.
-- [ ] T203 [P] Build category resolution and bundle summaries in `src/gitcfg/core/categories.py`, ensuring uncategorized fallback behavior.
-- [ ] T204 Compose Rich table renderer in `src/gitcfg/ui/tables.py` to visualize categories, scopes, and overrides.
-- [ ] T205 [P] Add JSON serialization/export helper in `src/gitcfg/ui/formatters.py` for `ConfigSnapshot` responses.
-- [ ] T206 Implement `view` command in `src/gitcfg/cli/commands/view.py` with options for `--format`, `--category`, `--scope`, and `--search` (filters stubbed until US4).
-- [ ] T207 Register `view` command inside `src/gitcfg/cli/app.py` and ensure `--help` text matches contracts.
-- [ ] T208 Provide error messaging for missing git contexts (outside repo) within `src/gitcfg/core/git_config.py` and propagate to CLI.
+- [X] T201 Implement git config read pipeline in `src/gitcfg/core/git_config.py` leveraging subprocess helper to gather scoped output.
+- [X] T202 [P] Parse git output into data models in `src/gitcfg/core/parser.py`, populating `ConfigEntry`, `EffectiveConfig`, and override metadata.
+- [X] T203 [P] Build category resolution and bundle summaries in `src/gitcfg/core/categories.py`, ensuring uncategorized fallback behavior.
+- [X] T204 Compose Rich table renderer in `src/gitcfg/ui/tables.py` to visualize categories, scopes, and overrides.
+- [X] T205 [P] Add JSON serialization/export helper in `src/gitcfg/ui/formatters.py` for `ConfigSnapshot` responses.
+- [X] T206 Implement `view` command in `src/gitcfg/cli/commands/view.py` with options for `--format`, `--category`, `--scope`, and `--search` (filters stubbed until US4).
+- [X] T207 Register `view` command inside `src/gitcfg/cli/app.py` and ensure `--help` text matches contracts.
+- [X] T208 Provide error messaging for missing git contexts (outside repo) within `src/gitcfg/core/git_config.py` and propagate to CLI.
 
 ### Tests for User Story 1 (OPTIONAL)
 
-- [ ] T209 [P] [US1] Unit tests for parser behavior in `tests/unit/test_parser.py` covering scope precedence and wildcard categories.
-- [ ] T210 [US1] Integration test for `gitcfg view` in `tests/integration/test_cli_view.py` using temporary git repo fixtures.
+- [X] T209 [P] [US1] Unit tests for parser behavior in `tests/unit/test_parser.py` covering scope precedence and wildcard categories.
+- [X] T210 [US1] Integration test for `gitcfg view` in `tests/integration/test_cli_view.py` using temporary git repo fixtures.
 
 **Checkpoint**: `gitcfg view` command delivers core MVP functionality.
 

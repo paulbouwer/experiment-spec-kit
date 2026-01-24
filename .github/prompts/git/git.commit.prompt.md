@@ -5,6 +5,10 @@ model: Claude Sonnet 4.5 (copilot)
 tools: ['runCommands', 'edit/createFile', 'edit/createDirectory', 'edit/editFiles', 'search']
 ---
 
+<!--
+modified from https://github.com/evmts/tevm-monorepo/blob/main/.claude/commands/commit.md
+-->
+
 # Command: Git Commit
 
 This command helps you create well-formatted commits with conventional commit messages and emoji.
