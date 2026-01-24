@@ -46,6 +46,10 @@ app = typer.Typer(
     rich_markup_mode="rich",
 )
 
+from gitcfg.cli.commands import register_commands  # noqa: E402
+
+register_commands(app)
+
 
 @app.callback()
 def main(
