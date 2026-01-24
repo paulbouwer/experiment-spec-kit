@@ -9,7 +9,7 @@ from rich.json import JSON
 from rich.panel import Panel
 from rich.text import Text
 
-from gitcfg.core.models import ConfigScope
+from gitcfg.core.models import ConfigScope, ConfigSnapshot
 from gitcfg.ui.themes import get_scope_style
 
 _STATUS_STYLE_DEFAULT = "status.info"
@@ -42,6 +42,12 @@ def to_rich_json(data: Any, *, indent: int = 2) -> JSON:
     return JSON(dump_json(data, indent=indent), indent=indent)
 
 
+def snapshot_to_json(snapshot: ConfigSnapshot, *, indent: int = 2) -> JSON:
+    """Serialize a configuration snapshot for JSON-friendly terminal output."""
+
+    return to_rich_json(snapshot.model_dump(mode="json"), indent=indent)
+
+
 def emphasize(text: str) -> Text:
     """Return emphasized text using the theme's title style."""
 
@@ -70,6 +76,7 @@ __all__ = [
     "dump_json",
     "emphasize",
     "format_scope",
+    "snapshot_to_json",
     "status_panel",
     "to_rich_json",
 ]
