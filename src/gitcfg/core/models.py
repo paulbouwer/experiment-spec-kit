@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import re
-from datetime import datetime
+from datetime import UTC, datetime
 from enum import StrEnum
 from pathlib import Path
 
@@ -9,7 +9,11 @@ from pydantic import BaseModel, ConfigDict, Field, field_validator, model_valida
 
 from gitcfg.core.exceptions import ValidationError
 
-_KEY_PATTERN = re.compile(r"^[A-Za-z0-9.\-]+$")
+_KEY_PATTERN = re.compile(r"^[A-Za-z0-9./-]+$")
+
+
+def _now_utc() -> datetime:
+    return datetime.now(UTC)
 _SCOPE_PRECEDENCE = {
     "system": 0,
     "global": 1,
@@ -180,7 +184,7 @@ class ConfigSnapshot(BaseModel):
     scopes: dict[ConfigScope, ScopeMetadata]
     entries: list[ConfigEntry]
     effective_map: dict[str, EffectiveConfig]
-    generated_at: datetime = Field(default_factory=datetime.utcnow)
+    generated_at: datetime = Field(default_factory=_now_utc)
 
     @model_validator(mode="after")
     def _validate_snapshot(self) -> ConfigSnapshot:
